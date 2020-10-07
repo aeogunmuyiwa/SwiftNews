@@ -31,6 +31,7 @@ class NewsHomeViewController: UIViewController {
         return tableViewObject
     }()
     
+    
     //Mark : View controller lifecyle method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +41,13 @@ class NewsHomeViewController: UIViewController {
         self.refreshControl?.addTarget(self, action: #selector(refreshDataSource(_:)), for: .valueChanged)
         view.addSubview(tableView)
         tableView.pin(to: view)
-        setDataSource(ViewController: self)
         self.tableView.addSubview(self.refreshControl!)
         
+        //Listen to network status and setdatasoruce if network is reachable
+        Network.init(viewController: self).startMonitoring(reachableHandler: { 
+            self.setDataSource(ViewController: self)
+        }, unreachableHandler: {
+        })
     }
     
     //Mark : Initialze datasouce, tableview needs to connect with ViewMdoel

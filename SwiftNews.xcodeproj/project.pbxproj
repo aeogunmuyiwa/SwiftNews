@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,8 @@
 		469AEAC0252C471C00C2BE78 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AEABF252C471C00C2BE78 /* util.swift */; };
 		469AEAC4252C4B7E00C2BE78 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AEAC3252C4B7E00C2BE78 /* ArticleViewModel.swift */; };
 		469AEAD0252CE4B600C2BE78 /* DefaultNewsHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AEACF252CE4B400C2BE78 /* DefaultNewsHomeTableViewCell.swift */; };
+		46FB9C76252DA0C500E9DB80 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FB9C75252DA0C500E9DB80 /* Network.swift */; };
+		46FB9C7B252DA57500E9DB80 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 46FB9C7A252DA57500E9DB80 /* Alamofire */; };
 		7577C9A5F5A3BBE45F5D410C /* Pods_SwiftNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAA5631D59C67F34359970E /* Pods_SwiftNewsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,7 @@
 		469AEABF252C471C00C2BE78 /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 		469AEAC3252C4B7E00C2BE78 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		469AEACF252CE4B400C2BE78 /* DefaultNewsHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNewsHomeTableViewCell.swift; sourceTree = "<group>"; };
+		46FB9C75252DA0C500E9DB80 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		4CAA5631D59C67F34359970E /* Pods_SwiftNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE6E69F863146CBF08C818C /* Pods-SwiftNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftNewsTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftNewsTests/Pods-SwiftNewsTests.release.xcconfig"; sourceTree = "<group>"; };
 		6347D0B04051BA4E3A8478FB /* Pods-SwiftNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftNews.release.xcconfig"; path = "Target Support Files/Pods-SwiftNews/Pods-SwiftNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1594E36DE80E5B15F16C5B1E /* Pods_SwiftNews.framework in Frameworks */,
+				46FB9C7B252DA57500E9DB80 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +235,7 @@
 				469AEA90252BF92500C2BE78 /* AlertModel.swift */,
 				469AEA95252C19C800C2BE78 /* CustomAnimination.swift */,
 				469AEABF252C471C00C2BE78 /* util.swift */,
+				46FB9C75252DA0C500E9DB80 /* Network.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +279,9 @@
 			dependencies = (
 			);
 			name = SwiftNews;
+			packageProductDependencies = (
+				46FB9C7A252DA57500E9DB80 /* Alamofire */,
+			);
 			productName = SwiftNews;
 			productReference = 469AEA32252BB85800C2BE78 /* SwiftNews.app */;
 			productType = "com.apple.product-type.application";
@@ -348,6 +356,9 @@
 				Base,
 			);
 			mainGroup = 469AEA29252BB85700C2BE78;
+			packageReferences = (
+				46FB9C79252DA57500E9DB80 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 469AEA33252BB85800C2BE78 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -508,6 +519,7 @@
 				469AEA7F252BBC6200C2BE78 /* NewsHomeDataSource.swift in Sources */,
 				469AEA75252BBB6600C2BE78 /* CustomFonts.swift in Sources */,
 				469AEA36252BB85800C2BE78 /* AppDelegate.swift in Sources */,
+				46FB9C76252DA0C500E9DB80 /* Network.swift in Sources */,
 				469AEAB8252C405800C2BE78 /* ArticleViewController.swift in Sources */,
 				469AEA91252BF92500C2BE78 /* AlertModel.swift in Sources */,
 				469AEA38252BB85800C2BE78 /* SceneDelegate.swift in Sources */,
@@ -849,6 +861,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		46FB9C79252DA57500E9DB80 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		46FB9C7A252DA57500E9DB80 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46FB9C79252DA57500E9DB80 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		469AEA3E252BB85800C2BE78 /* SwiftNews.xcdatamodeld */ = {

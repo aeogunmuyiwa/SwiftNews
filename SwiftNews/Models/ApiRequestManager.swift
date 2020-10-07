@@ -37,7 +37,7 @@ class apiManager {
             switch completion {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    
+                    //Error alert if failure occurs while fetching data
                     AlertModel.init().presentAlert(contoller: self.MainController, message: error.localizedDescription, title: "Error" , alertType: .error, completionHandler: { errorType in
                         switch errorType {
                             case .cancel :
@@ -46,7 +46,6 @@ class apiManager {
                                 errorHandler(.retry)
                         }
                     })
-                   
                 }
             case .finished :
                 print("finished")
