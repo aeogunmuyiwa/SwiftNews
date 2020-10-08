@@ -9,8 +9,8 @@
 import Foundation
 
 
-//let NewsListApiKey = "https://www.reddit.com/r/swift/.json"
-let NewsListApiKey = "https://www.d.com/r/swift/.json"
+let NewsListApiKey = "https://www.reddit.com/r/swift/.json"
+
 
 
 //
