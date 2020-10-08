@@ -91,6 +91,7 @@ extension NewsHomeDataSource : UITableViewDelegate , UITableViewDataSource {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateVC(withIdentifier: withIdentifier)  as? UINavigationController
             if let viewController = vc  {
+                viewController.modalPresentationStyle = .fullScreen
                 if let articleVC = viewController.topViewController as? ArticleViewController{
                     articleVC.datsource = datasource
                     self?.MainController?.show(viewController, sender: self)
