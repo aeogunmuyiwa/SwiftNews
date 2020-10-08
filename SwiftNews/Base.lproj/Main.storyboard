@@ -56,14 +56,6 @@
             </objects>
             <point key="canvasLocation" x="1378" y="-1633"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="aIp-qX-TWn">
-            <objects>
-                <splitViewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" allowDoubleColumnStyle="YES" id="ubR-wP-2Vr" customClass="RootViewController" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6DG-ID-z1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1245" y="-1431"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="48F-qO-EAu">
             <objects>
