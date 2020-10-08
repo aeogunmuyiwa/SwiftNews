@@ -75,7 +75,7 @@ extension NewsHomeDataSource : UITableViewDelegate , UITableViewDataSource {
         if let datasource = datasource?.data?.children , let data = datasource[indexPath.section].data, let text = data.title {
             let height =   DyanmicLabel.init().height(constraintedWidth:UIScreen.main.bounds.width , font: CustomFont.Title, text: text)
             
-            //Image avaaiale
+            //Image avaiable
             if  let ImageHeight = data.thumbnailHeight{
                 return  CGFloat(ImageHeight) + height + 60
             }
@@ -89,7 +89,7 @@ extension NewsHomeDataSource : UITableViewDelegate , UITableViewDataSource {
     func ViewNavigation(withIdentifier : String , datasource : Child){
         DispatchQueue.main.async { [weak self] in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-             let vc = storyboard.instantiateVC(withIdentifier: withIdentifier)  as? UINavigationController
+            let vc = storyboard.instantiateVC(withIdentifier: withIdentifier)  as? UINavigationController
             if let viewController = vc  {
                 if let articleVC = viewController.topViewController as? ArticleViewController{
                     articleVC.datsource = datasource

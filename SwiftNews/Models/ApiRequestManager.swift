@@ -9,11 +9,13 @@ import UIKit
 import Combine
 
 //APPError enum which shows all possible errors
-enum APPError: Error {
-    case networkError(String)
-    case dataNotFound (String)
-    case jsonParsingError(String)
-    case invalidStatusCode(Int)
+
+enum APPError: String, Error {
+    typealias RawValue = String
+    
+    case networkError = "Something is temporarily wrong with your network connection. Please make sure you are connected to the internet and try again."
+    case dataNotFound =  "Error decoding data"
+    case jsonParsingError = "Error decoding json"
 }
 class apiManager {
     private weak var MainController : UIViewController?
@@ -38,7 +40,7 @@ class apiManager {
             case .failure(let error):
                 DispatchQueue.main.async {
                     //Error alert if failure occurs while fetching data
-                    AlertModel.init().presentAlert(contoller: self.MainController, message: error.localizedDescription, title: "Error" , alertType: .error, completionHandler: { errorType in
+                    AlertModel.init().presentAlert(contoller: self.MainController, message: error.rawValue, title: "Error" , alertType: .error, completionHandler: { errorType in
                         switch errorType {
                             case .cancel :
                                 errorHandler(.cancel)
@@ -75,10 +77,10 @@ class apiManager {
                 
                 //create dataTask using the session object to send data to the server
                 let task = session.dataTask(with: request, completionHandler: { data, response, error in
-                    
+                   
                     guard error == nil else {
                         DispatchQueue.main.async {
-                            promise(.failure(APPError.networkError(error.debugDescription)))
+                            promise(.failure(APPError.networkError))
                         }
                       //  completion(Result.failure(APPError.networkError(error!)))
                         return
@@ -86,7 +88,7 @@ class apiManager {
                     
                     guard let data = data else {
                         DispatchQueue.main.async {
-                            promise(.failure(.dataNotFound("Data not found")))
+                            promise(.failure(.dataNotFound))
                         }
                        // completion(Result.failure(APPError.dataNotFound))
                         return
@@ -104,7 +106,7 @@ class apiManager {
                        // completion(Result.success(decodedObject))
                     } catch let error {
                         DispatchQueue.main.async {
-                            promise(.failure(.jsonParsingError("Error decoding object")))
+                            promise(.failure(.jsonParsingError))
                         }
                        // completion(Result.failure(APPError.jsonParsingError(error as! DecodingError)))
                     }

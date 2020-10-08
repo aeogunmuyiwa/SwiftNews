@@ -12,8 +12,6 @@ class ArticleView: UIView {
     // MARK: - Properties
     var datasource : Child?
     private let topAnchorConstant : CGFloat =  100 //constant for topanchor of view
-    private lazy var contentViewSize : CGFloat = 0
-    private var labelCotentViewsize : CGFloat = 0
     
     private lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView()

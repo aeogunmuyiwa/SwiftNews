@@ -46,7 +46,9 @@ class AlertModel: NSObject {
             }))
             
         case .networkAlert :
-            print("")
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {_ in
+                completionHandler(.cancel)
+            }))
         }
         if let Maincontroller = contoller    {
             DispatchQueue.main.async {

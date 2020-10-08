@@ -11,7 +11,6 @@ import UIKit
 class NewsHomeViewController: UIViewController {
 
     // MARK: - Properties
-    private var loadingAnimation : spinnerAnimation?
     private  var refreshControl : UIRefreshControl?
     
     private lazy var tableView : UITableView = {
@@ -75,8 +74,9 @@ class NewsHomeViewController: UIViewController {
         tableView.pin(to: view)
         refreshControl = UIRefreshControl()
         if let refreshControl = refreshControl {
+            
             refreshControl.backgroundColor = UIColor.clear
-            refreshControl.tintColor = UIColor.black
+            refreshControl.tintColor = UIColor.clear
             self.tableView.addSubview(refreshControl)
             self.refreshControl?.addTarget(self, action: #selector(refreshDataSource(_:)), for: .valueChanged)
         }

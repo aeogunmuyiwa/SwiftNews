@@ -1,12 +1,18 @@
+//
+//  NewsHomeDataModel.swift
+//  SwiftNews
+//
+//  Created by Adebayo  Ogunmuyiwa on 2020-10-07.
+//
 
 
 import Foundation
 
 
-let NewsListApiKey = "https://www.reddit.com/r/swift/.json"
+//let NewsListApiKey = "https://www.reddit.com/r/swift/.json"
+let NewsListApiKey = "https://www.d.com/r/swift/.json"
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
+
 //
 //   let newsHomeDataModel = try? newJSONDecoder().decode(NewsHomeDataModel.self, from: jsonData)
 
@@ -34,6 +40,7 @@ struct ChildData: Codable {
     let thumbnailHeight: Int?
     let thumbnailWidth: Int?
     let thumbnail: String?
+   
    
    
 
