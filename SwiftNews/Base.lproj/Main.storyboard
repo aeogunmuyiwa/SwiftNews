@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KJm-cu-sRl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ubR-wP-2Vr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -8,54 +8,83 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Swift News-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="NewsHomeViewController" id="BYZ-38-t0r" customClass="NewsHomeViewController" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Swift News" id="KCk-YE-CEP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="53.571428571428569"/>
-        </scene>
         <!--Article View Controller-->
-        <scene sceneID="Jvn-Sn-L7Z">
+        <scene sceneID="waO-qK-YEb">
             <objects>
-                <viewController storyboardIdentifier="ArticleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="izF-DJ-1X9" customClass="ArticleViewController" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QCD-9G-KOP">
+                <viewController storyboardIdentifier="ArticleViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="otf-u3-cTu" customClass="ArticleViewController" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qen-0i-e8P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="1fP-3U-6W9"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="CLQ-r7-P2j"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="DKt-VO-KEq"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4pR-5y-Erq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cni-UD-Ftb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002.8985507246377" y="63.616071428571423"/>
+            <point key="canvasLocation" x="2566.666666666667" y="-966.29464285714278"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="wQ8-TM-Tje">
+        <scene sceneID="h61-7a-Ge1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KJm-cu-sRl" sceneMemberID="viewController">
+                <navigationController id="N8P-4N-Gnj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jxb-Rz-Xbz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AFT-th-2Pe" kind="relationship" relationship="rootViewController" id="RhX-VY-GGx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lM-yG-2pG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="-1677"/>
+        </scene>
+        <!--Swift News-->
+        <scene sceneID="W7W-3o-6N2">
+            <objects>
+                <viewController storyboardIdentifier="NewsHomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AFT-th-2Pe" customClass="NewsHomeViewController" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fag-VL-aA3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wzO-Ov-QJG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Swift News" id="0rP-bB-NRE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Eg-Zh-PN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378" y="-1633"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="aIp-qX-TWn">
+            <objects>
+                <splitViewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" allowDoubleColumnStyle="YES" id="ubR-wP-2Vr" customClass="RootViewController" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="N8P-4N-Gnj" kind="relationship" relationship="masterViewController" id="jcM-38-3bl"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6DG-ID-z1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1245" y="-1431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="48F-qO-EAu">
+            <objects>
+                <navigationController storyboardIdentifier="ArticleViewNavigation" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yXP-Fi-L61" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="poJ-5c-Mb4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0MW-w3-ywK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kLW-V5-vvb"/>
+                        <segue destination="otf-u3-cTu" kind="relationship" relationship="rootViewController" id="33j-5A-8fV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jDt-US-iEX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zQ9-zx-3gf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="53.571428571428569"/>
+            <point key="canvasLocation" x="764" y="-930"/>
         </scene>
     </scenes>
     <resources>

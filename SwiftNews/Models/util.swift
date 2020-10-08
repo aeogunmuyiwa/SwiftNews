@@ -7,10 +7,21 @@
 
 import UIKit
 
-     var GlobalNewsHomeTableViewCellIdentifer = "GloablNewsHomeTableViewCellIdentifer"
-     var DefaultNewsHomeTableViewCelldentifer = "DefaultNewsHomeTableViewCelldentifer"
+var DefaultNewsHomeTableViewCelldentifer = "DefaultNewsHomeTableViewCelldentifer"
 
 
+class DyanmicLabel {
+    func height(constraintedWidth width: CGFloat, font: UIFont, text : String) -> CGFloat {
+        let label =  UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.text = text
+        label.font = font
+        label.sizeToFit()
+
+        return label.frame.height
+     }
+    
+}
 extension UIStoryboard {
     /* check if an identifier exist in the storyboard*/
     func instantiateVC(withIdentifier identifier: String) -> UIViewController? {

@@ -9,6 +9,7 @@ import UIKit
 import Kingfisher
 
 class NewsHomeTableViewCell: UITableViewCell {
+    var dataSource : Child?
     // MARK: - Properties
     private var Title : UILabel = {
         let Title = UILabel()
@@ -20,7 +21,6 @@ class NewsHomeTableViewCell: UITableViewCell {
         Title.sizeToFit()
         Title.textColor = CustomColors.textColour
          return Title
-         
      }()
    
     private var Image : UIImageView = {
@@ -41,7 +41,7 @@ class NewsHomeTableViewCell: UITableViewCell {
      }
     
     //Mark : Set cell properties from datasource
-    func customInit(dataSource : Child, textHeight : CGFloat){
+    func customInit(dataSource : Child){
          awakeFromNib()
          DispatchQueue.main.async { [weak self] in
             self?.Title.text = dataSource.data?.title
@@ -66,18 +66,34 @@ class NewsHomeTableViewCell: UITableViewCell {
     func setUpConstraints() {
         contentView.addSubview(Title)
         contentView.addSubview(Image)
+        NSLayoutConstraint.activate([
+           Title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+           Title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
+           Title.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
+     
+           Image.topAnchor.constraint(equalTo: Title.bottomAnchor, constant: 10),
+           Image.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0),
+           Image.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0),
+            //Image.heightAnchor.constraint(equalToConstant: CGFloat(0))
+          //// Image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+        ])
         
-         NSLayoutConstraint.activate([
-            Title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            Title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-            Title.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
-      
-            Image.topAnchor.constraint(equalTo: Title.bottomAnchor, constant: 10),
-            Image.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0),
-            Image.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0),
-            Image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-         ])
+        
+        if let datasource = dataSource, let height = datasource.data?.thumbnailHeight {
+            NSLayoutConstraint.activate([
+                Image.heightAnchor.constraint(equalToConstant: CGFloat(height))
+            ])
+        }else{
+            Image.isHidden = true
+            NSLayoutConstraint.activate([
+                Image.heightAnchor.constraint(equalToConstant: 0),
+                
+            ])
+        }
+        
+        
      }
+
     
 
      override func setSelected(_ selected: Bool, animated: Bool) {
