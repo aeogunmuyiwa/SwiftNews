@@ -8,9 +8,11 @@
 import UIKit
 
 class DefaultNewsHomeTableViewCell: UITableViewCell {
-    var dataSource : Child?
+  
     // MARK: - Properties
-     lazy var Title : UILabel = {
+    
+    var dataSource : Child?
+    private lazy var Title : UILabel = {
         let Title = UILabel()
         Title.translatesAutoresizingMaskIntoConstraints = false
         Title.font = CustomFont.Title
@@ -24,8 +26,6 @@ class DefaultNewsHomeTableViewCell: UITableViewCell {
     private var Image : UIImageView = {
         let Image = UIImageView()
         Image.translatesAutoresizingMaskIntoConstraints = false
-       // Image.layer.masksToBounds = true
-       // Image.clipsToBounds = true
         Image.contentMode = .scaleAspectFit
          return Image
          
@@ -34,15 +34,13 @@ class DefaultNewsHomeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         basicContaints()
-        // Initialization code
     }
   
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
     //Mark : Setup cell contraints
     func basicContaints(){
         self.contentView.backgroundColor = CustomColors.appbackground
@@ -53,6 +51,7 @@ class DefaultNewsHomeTableViewCell: UITableViewCell {
             Title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             Title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
             Title.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
+            
             Image.topAnchor.constraint(equalTo: Title.bottomAnchor, constant: 10),
             Image.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0),
             Image.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0),

@@ -23,14 +23,12 @@ class ArticleViewModel: NSObject {
     private lazy var navBarTitleView : UILabel = {
        let title = UILabel()
         title.font = CustomFont.Title
-       // title.adjustsFontSizeToFitWidth = true
         title.sizeToFit()
         return title
     }()
     
     //MARK : - Initialization , injects the controller and the datasource
     init(controller : UIViewController, datasource : Child?) {
-
         self.controller = controller
         self.datasource = datasource
         super.init()
@@ -38,11 +36,9 @@ class ArticleViewModel: NSObject {
         self.articleView.backgroundColor = CustomColors.appbackground
         controller.view.addSubview(self.articleView)
         articleView.pin(to: controller.view)
-        
-        //initialze view datasource :
+
+        //initialze view datasource and Set navbar title
         if let datasource = datasource{
-            //Set navbar title
-            self.articleView.width = controller.view.frame.width
             navBarTitleView.text = datasource.data?.title
             controller.navigationItem.titleView = navBarTitleView
             self.articleView.determineImagePreset(dataSource: datasource)

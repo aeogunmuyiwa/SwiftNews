@@ -10,7 +10,7 @@ import Combine
 
 //APPError enum which shows all possible errors
 enum APPError: Error {
-    case networkError(Error)
+    case networkError(String)
     case dataNotFound (String)
     case jsonParsingError(String)
     case invalidStatusCode(Int)
@@ -78,7 +78,7 @@ class apiManager {
                     
                     guard error == nil else {
                         DispatchQueue.main.async {
-                            promise(.failure(APPError.networkError(error!)))
+                            promise(.failure(APPError.networkError(error.debugDescription)))
                         }
                       //  completion(Result.failure(APPError.networkError(error!)))
                         return

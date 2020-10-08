@@ -13,6 +13,7 @@ class ArticleViewController: UIViewController {
     var datsource : Child?
     private var articleViewModel : ArticleViewModel?
     
+    
     //Mark : View controller lifecyle method
     override func viewDidLoad() {
         super.viewDidLoad()

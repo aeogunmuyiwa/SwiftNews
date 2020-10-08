@@ -10,9 +10,9 @@ import Kingfisher
 
 class ArticleView: UIView {
     // MARK: - Properties
-    private lazy var contentViewSize : CGFloat = 0
     var datasource : Child?
-    var width : CGFloat  = 0
+    private let topAnchorConstant : CGFloat =  100 //constant for topanchor of view
+    private lazy var contentViewSize : CGFloat = 0
     private var labelCotentViewsize : CGFloat = 0
     
     private lazy var scrollView : UIScrollView = {
@@ -22,6 +22,7 @@ class ArticleView: UIView {
         scrollView.bounces = true
         return scrollView
     }()
+    
     private lazy var body : UITextView = {
        let body = UITextView()
         body.translatesAutoresizingMaskIntoConstraints = false
@@ -51,28 +52,26 @@ class ArticleView: UIView {
       super.init(coder: aDecoder)
     }
     
+    //Mark : - setup constrainsts for datasource without Image
     func setUpConstraints(){
         scrollView.addSubview(body)
         NSLayoutConstraint.activate([
-            
-       
-            body.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5),
+            body.topAnchor.constraint(equalTo: self.topAnchor, constant: topAnchorConstant),
             body.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 5),
             body.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5),
             body.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0)
         ])
     }
     
+    //Mark : - setup constraints for datasource with Image
     func setUpConstraintsWithImage(height : CGFloat){
         scrollView.addSubview(body)
         scrollView.addSubview(Image)
-        //self.addSubview(body)
-       
         NSLayoutConstraint.activate([
-            Image.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+            Image.topAnchor.constraint(equalTo: self.topAnchor, constant: topAnchorConstant),
             Image.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
             Image.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
-            Image.heightAnchor.constraint(equalToConstant: height ),
+            Image.heightAnchor.constraint(equalToConstant: height + 20),
             
             
             body.topAnchor.constraint(equalTo: Image.bottomAnchor, constant: 5),
@@ -84,7 +83,7 @@ class ArticleView: UIView {
   
   
     
-    //determain if the datasource has a thumbnail image base by its width and heigh
+    //determine if the datasource has a thumbnail image base by its width and heigh
     func determineImagePreset(dataSource : Child){
         self.addSubview(scrollView)
         scrollView.pin(to: self)
@@ -94,7 +93,7 @@ class ArticleView: UIView {
         if datasource?.data?.thumbnailHeight == nil && datasource?.data?.thumbnailWidth ==  nil {
             setUpConstraints()
         }else{
-            if  let Imageheight = datasource?.data?.thumbnailHeight{
+            if let Imageheight = datasource?.data?.thumbnailHeight{
                 setUpConstraintsWithImage(height : CGFloat(Imageheight) )
             }
             
