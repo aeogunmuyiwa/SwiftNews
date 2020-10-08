@@ -17,6 +17,8 @@ enum APPError: String, Error {
     case dataNotFound =  "Error decoding data"
     case jsonParsingError = "Error decoding json"
 }
+
+@available(iOS 13.0, *)
 class apiManager {
     private weak var MainController : UIViewController?
     var Subscriber: AnyCancellable?

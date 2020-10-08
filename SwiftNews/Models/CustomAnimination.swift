@@ -25,20 +25,26 @@ class CustomAnimination {
 }
 extension UIView {
     
-   func startLoadingtAnimating(){
+  
+    func startLoadingtAnimating(){
          //spinner activity indicator
         let spinnerView = UIView()
         spinnerView.tag = 1000
-        let spinner = UIActivityIndicatorView(style: .large)
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.color = .black
+        if #available(iOS 13.0, *) {
+            let spinner = UIActivityIndicatorView(style: .large)
+            spinner.translatesAutoresizingMaskIntoConstraints = false
+            spinner.color = .black
+           
+            spinnerView.addSubview(spinner)
+            self.addSubview(spinnerView)
+            spinner.centerXAnchor.constraint(equalTo: spinnerView.centerXAnchor).isActive = true
+            spinner.centerYAnchor.constraint(equalTo: spinnerView.centerYAnchor).isActive = true
+            spinnerView.pin(to: self)
+            spinner.startAnimating()
+        } else {
+            // Fallback on earlier versions
+        }
        
-        spinnerView.addSubview(spinner)
-        self.addSubview(spinnerView)
-        spinner.centerXAnchor.constraint(equalTo: spinnerView.centerXAnchor).isActive = true
-        spinner.centerYAnchor.constraint(equalTo: spinnerView.centerYAnchor).isActive = true
-        spinnerView.pin(to: self)
-    spinner.startAnimating()
     }
     func stopsLoadingtAnimating(){
         let spinnerView = self.viewWithTag(1000)
