@@ -18,7 +18,7 @@ class NewsHomeViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = true
         tableView.separatorColor = .black
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        //tableView.backgroundColor = UIColor.black
+        tableView.backgroundColor = UIColor.black
         tableView.register(DefaultNewsHomeTableViewCell.self, forCellReuseIdentifier: DefaultNewsHomeTableViewCelldentifer)
         return tableView
     }()
@@ -43,7 +43,6 @@ class NewsHomeViewController: UIViewController {
     }
 
     private func setDataSource(ViewController : UIViewController){
-        view.startLoadingtAnimating()
     
         apiManager.init(controller: ViewController).makeReqeust(apiKey: NewsListApiKey, objectType: NewsHomeDataModel.self, completionHandler: {[weak self] result in
             if let result  = result as? NewsHomeDataModel{
@@ -52,14 +51,13 @@ class NewsHomeViewController: UIViewController {
                 self?.tableView.delegate = self?.tableViewObject
                 self?.tableView.reloadData()
                 self?.refreshControl?.endRefreshing()
-                self?.view.stopsLoadingtAnimating()
             }
             
         }, errorHandler: { [weak self] error in
             switch error {
                 case .cancel:
                     self?.refreshControl?.endRefreshing()
-                    self?.view.stopsLoadingtAnimating()
+                   
             case .retry :
                 self?.refreshDataSource(self)
             }
