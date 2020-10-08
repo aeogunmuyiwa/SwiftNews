@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ubR-wP-2Vr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N8P-4N-Gnj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -59,11 +59,7 @@
         <!--Root View Controller-->
         <scene sceneID="aIp-qX-TWn">
             <objects>
-                <splitViewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" allowDoubleColumnStyle="YES" id="ubR-wP-2Vr" customClass="RootViewController" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="N8P-4N-Gnj" kind="relationship" relationship="masterViewController" id="jcM-38-3bl"/>
-                    </connections>
-                </splitViewController>
+                <splitViewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" allowDoubleColumnStyle="YES" id="ubR-wP-2Vr" customClass="RootViewController" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6DG-ID-z1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1245" y="-1431"/>
